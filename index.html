@@ -167,7 +167,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                    <div id="js-aboutme">喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中,当然了，也是千场盲僧。</div>
                 </section>
                 
             </div>
@@ -230,10 +230,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-关于Vue" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/10/first/" class="article-date">
+      <a href="/2019/08/10/关于Vue/" class="article-date">
       <time datetime="2019-08-10T03:10:28.297Z" itemprop="datePublished">2019-08-10</time>
 </a>
 
@@ -248,80 +248,65 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="第一篇博文"><a href="#第一篇博文" class="headerlink" title="第一篇博文"></a>第一篇博文</h2>
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
+        <h2 id="Vue所安装的依赖或插件（暂更）"><a href="#Vue所安装的依赖或插件（暂更）" class="headerlink" title="Vue所安装的依赖或插件（暂更）"></a>Vue所安装的依赖或插件（暂更）</h2><ul>
+<li>UI框架 vant (移动端)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vant -S</span><br></pre></td></tr></table></figure>
 
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+</li>
+</ul>
+<p>在router文件夹下的index.js中引入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Toast&#125; from &apos;vant&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(Toast)</span><br></pre></td></tr></table></figure>
+
+<p>在main.js中引入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vant from &apos;vant&apos;</span><br><span class="line">import &apos;vant/lib/index.css&apos;</span><br><span class="line">Vue.use(Vant)</span><br></pre></td></tr></table></figure>
+
+<p>在组件中使用示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;!--在官网复制粘贴--&gt;</span><br><span class="line">&lt;van-button type=&quot;default&quot;&gt;默认按钮&lt;/van-button&gt; </span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>mockjs 模拟数据<br>安装依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mockjs --save-dev</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>在src工作文件下创建一个data文件夹用来存放某些数据，新建一个js文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import Mock from &apos;mockjs&apos; //&apos;mockjs&apos;固定语法</span><br><span class="line">var data = Mock.mock(&#123;</span><br><span class="line">    &apos;list|5-9&apos;:[&#123;</span><br><span class="line">        &apos;pid|+1&apos;:0,</span><br><span class="line">        &apos;price&apos;:&apos;@natural(19,299)&apos;//官网mockjs查找</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;)</span><br><span class="line">Mock.mock(&apos;http://www.baidu.com/api&apos;,data)</span><br></pre></td></tr></table></figure>
+
+<p>这个js文件写好后，在main.js中引入，全局使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &apos;./data/mock.js&apos; //这个mock.js是示例，可以有很多模拟的数据接口</span><br></pre></td></tr></table></figure>
+
+<p>在组件中这样直接使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    url:&apos;http://www.baidu.com/api&apos;</span><br><span class="line">&#125;).then((data)=&gt;&#123;</span><br><span class="line">    console.log(data.data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Vue-social-share<br>安装依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vue-social-share -S</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>在main.js下引入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Share from &apos;vue-social-share&apos;</span><br><span class="line">import &apos;vue-social-share/dist/client.css&apos;</span><br><span class="line">Vue.use(Share)</span><br></pre></td></tr></table></figure>
+
+<p>在组件使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;share :config=&apos;config&apos;&gt;&lt;/share&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default&#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        config:&#123;</span><br><span class="line">            url: &apos;http://www.baidu.com&apos;, // 网址，默认使用 window.location.href</span><br><span class="line">                source:&apos;&apos;, // 来源（QQ空间会用到）, 默认读取head标签：&lt;meta name=&quot;site&quot; content=&quot;http://overtrue&quot; /&gt;</span><br><span class="line">                title: &apos;hello&apos;, // 标题，默认读取 document.title 或者 &lt;meta name=&quot;title&quot; content=&quot;share.js&quot; /&gt;</span><br><span class="line">                description: &apos;hi&apos;, // 描述, 默认读取head标签&lt;meta name=&quot;description&quot; content=&quot;PHP弱类型的实现原理分析&quot; /&gt;</span><br><span class="line">                image : &apos;&apos;, // 图片, 默认取网页中第一个img标签</span><br><span class="line">                sites: [&apos;qzone&apos;, &apos;qq&apos;, &apos;weibo&apos;,&apos;wechat&apos;, &apos;douban&apos;], // 启用的站点</span><br><span class="line">                //disabled: [&apos;google&apos;, &apos;facebook&apos;, &apos;twitter&apos;], // 禁用的站点</span><br><span class="line">                wechatQrcodeTitle: &apos;微信扫一扫：分享&apos;, // 微信二维码提示文字</span><br><span class="line">                wechatQrcodeHelper  : &apos;&lt;p&gt;微信里点“发现”，扫一下&lt;/p&gt;&lt;p&gt;二维码便可将本文分享至朋友圈。&lt;/p&gt;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>v-tap 移动端的点击事件，没有延迟<br>安装v-tap依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i v-tap --save-dev</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>在main.js文件下引入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import vueTap from &apos;v-tap&apos;</span><br><span class="line">Vue.use(vueTap)</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;van-button type=&quot;info&quot; v-tap=&apos;&#123;methods:tap,id:123&#125;&apos;&gt;tap事件&lt;/van-button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default&#123;</span><br><span class="line">     methods:&#123;</span><br><span class="line">         tap(id)&#123;</span><br><span class="line">             console.log(&apos;a&apos;)// v-tap=&apos;&#123;methods:事件名,参数名:参数值&#125;&apos;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装zepto 类似于jquery 安装依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i n-zepto --save-dev</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>安装后，在main.js里引入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import $ from &apos;n-zepto&apos;</span><br></pre></td></tr></table></figure>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/30/hello-world/" class="article-date">
-      <time datetime="2019-07-30T06:33:45.094Z" itemprop="datePublished">2019-07-30</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-                <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
- 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
       
@@ -365,7 +350,7 @@
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >海贼到访数: 
+                        <span id="site-visit" >访问人数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -383,17 +368,13 @@
             </div>
         
     </div>
-    
+ 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         <!-- 不蒜子统计 -->
         <span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
         </span>
-        <span class="post-meta-divider">|</span>
-        <span id="busuanzi_container_site_uv" style='display:none'>
-                本站访客数<span id="busuanzi_value_site_uv"></span>人
-        </span>
-        <script async src="/busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  
+
 </footer>
 
 
@@ -427,7 +408,6 @@
     })
 </script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
   <script language="javascript">
